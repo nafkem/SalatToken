@@ -2,14 +2,14 @@ import { ethers } from "hardhat";
 
 async function main() {
     
-  const MyToken = await ethers.deployContract("MyToken"); 
-  await MyToken.waitForDeployment();
+  const TokenMining = await ethers.deployContract("TokenMining"); 
+  await TokenMining.waitForDeployment();
   
-  const SaveERC20 = await ethers.deployContract("SaveERC20",[MyToken.target]); 
-  await SaveERC20.waitForDeployment();
+  const SalatToken = await ethers.deployContract("SalatToken",[TokenMining.target]); 
+  await SalatToken.waitForDeployment();
 
   console.log(
-    `SaveERC20 contract deployed to ${SaveERC20.target, MyToken.target}`
+    `SalatToken contract deployed to ${SalatToken.target, TokenMining.target}`
   );
 }
 

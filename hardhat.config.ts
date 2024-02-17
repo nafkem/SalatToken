@@ -1,8 +1,12 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
+require('@nomicfoundation/hardhat-toolbox');
+require("dotenv").config({ path: ".env" });
 
-const config: HardhatUserConfig = {
+module.exports = {
   solidity: "0.8.24",
-};
-
-export default config;
+  networks: {
+    mumbai: {
+      url: process.env.EVM_RPC,
+      accounts: [process.env.PRIVATEKEY],
+    },
+  },
+  }
